@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Node structure for the Binary Search Tree
 struct node {
     int data;
     struct node *left;
     struct node *right;
 };
 
-// Function to create a new node
 struct node* createNode(int value) {
     struct node* newNode = (struct node*)malloc(sizeof(struct node));
     newNode->data = value;
@@ -16,7 +14,6 @@ struct node* createNode(int value) {
     return newNode;
 }
 
-// Function to insert a value into the BST
 struct node* insert(struct node* root, int value) {
     if (root == NULL) {
         return createNode(value);
@@ -27,11 +24,9 @@ struct node* insert(struct node* root, int value) {
     } else if (value > root->data) {
         root->right = insert(root->right, value);
     }
-    // Ignore duplicate values in a typical BST implementation
     return root;
 }
 
-// Function to search for an element in the BST
 void search(struct node* root, int key) {
     if (root == NULL) {
         printf("NULL\n");
@@ -48,7 +43,6 @@ void search(struct node* root, int key) {
     }
 }
 
-// Function to delete a leaf node with the given key
 struct node* deleteLeaf(struct node* root, int key) {
     if (root == NULL) {
         return NULL;
@@ -59,22 +53,21 @@ struct node* deleteLeaf(struct node* root, int key) {
     } else if (key > root->data) {
         root->right = deleteLeaf(root->right, key);
     } else {
-        // key == root->data, check if it's a leaf node
+    
         if (root->left == NULL && root->right == NULL) {
-            // It is a leaf node
+   
             free(root);
             printf("Leaf node deleted successfully!\n");
-            return NULL; // Parent's pointer is set to NULL
+            return NULL; 
         } else {
-            // Not a leaf node! (Has one or two children)
+           
             printf("Not a leaf node! Cannot delete.\n");
-            return root; // Return the node without deleting
+            return root; 
         }
     }
     return root;
 }
 
-// Inorder Traversal (Used here to check the tree after operations)
 void inorder(struct node* root) {
     if (root != NULL) {
         inorder(root->left);
@@ -131,4 +124,5 @@ int main() {
     }
 
     return 0;
+
 }
