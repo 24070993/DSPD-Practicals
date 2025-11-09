@@ -27,7 +27,7 @@ int binarySearch(int *arr, int n, int key) {
             end = mid - 1;
         }
     }
-    return 0; // not found
+    return 0; 
 }
 
 int main() {
@@ -48,3 +48,4 @@ int main() {
         printf("Invalid input (NULL array or empty list).\n");
 return 0;
 }
+
