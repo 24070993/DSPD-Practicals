@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Node structure for the Binary Tree
 struct Node {
     int data;
     struct Node *left;
     struct Node *right;
 };
 
-// Function to create a new node
 struct Node* createNode(int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
@@ -16,23 +14,19 @@ struct Node* createNode(int value) {
     return newNode;
 }
 
-// Function to insert a node into the Binary Search Tree (BST)
 struct Node* insert(struct Node* root, int value) {
     if (root == NULL) {
         return createNode(value);
     }
-    // If the value is less than the current node's data, insert in the left subtree
     if (value < root->data) {
         root->left = insert(root->left, value);
     }
-    // Otherwise, insert in the right subtree
     else {
         root->right = insert(root->right, value);
     }
     return root;
 }
 
-// Inorder Traversal: Left -> Root -> Right
 void inorder(struct Node *root) {
     if (root != NULL) {
         inorder(root->left);
@@ -41,7 +35,6 @@ void inorder(struct Node *root) {
     }
 }
 
-// Preorder Traversal: Root -> Left -> Right
 void preorder(struct Node *root) {
     if (root != NULL) {
         printf("%d ", root->data);
@@ -50,7 +43,6 @@ void preorder(struct Node *root) {
     }
 }
 
-// Postorder Traversal: Left -> Right -> Root
 void postorder(struct Node *root) {
     if (root != NULL) {
         postorder(root->left);
@@ -59,7 +51,6 @@ void postorder(struct Node *root) {
     }
 }
 
-// Function to search for an element
 void search(struct Node *root, int key) {
     if (root == NULL) {
         printf("NULL (NOT found)\n");
@@ -71,11 +62,10 @@ void search(struct Node *root, int key) {
         return;
     }
     
-    // If key is less than root's data, search left
     if (key < root->data) {
         search(root->left, key);
     }
-    // If key is greater than root's data, search right
+    
     else {
         search(root->right, key);
     }
@@ -91,7 +81,7 @@ int main() {
     printf("Enter %d node values: \n", n);
     for (i = 0; i < n; i++) {
         scanf("%d", &value);
-        // Insert node and update the root
+      
         root = insert(root, value);
     }
 
@@ -112,4 +102,5 @@ int main() {
     search(root, key);
 
     return 0;
+
 }
