@@ -30,8 +30,6 @@ int main() {
     scanf("%d", &n);
 
     struct Student students[n];
-
-    // Input student details
     for (i = 0; i < n; i++) {
         printf("\nEnter details of student %d:\n", i + 1);
         printf("Name: ");
@@ -43,11 +41,7 @@ int main() {
         printf("Average Marks: ");
         scanf("%f", &students[i].avgMarks);
     }
-
-    // Sort students by avgMarks
     bubbleSort(students, n);
-
-    // Print sorted list
     printf("\nStudents sorted by Average Marks (Descending Order):\n");
     for (i = 0; i < n; i++) {
         printf("Name: %s | Roll: %d | Age: %d | Avg Marks: %.2f\n",
@@ -56,3 +50,4 @@ int main() {
 
 return 0;
 }
+
