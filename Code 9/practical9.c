@@ -2,8 +2,7 @@
 
 int main() {
     int hash[7], i, key, index, n;
-    
-    // Initialize table with -1 (empty)
+
     for (i = 0; i < 7; i++)
         hash[i] = -1;
 
@@ -14,13 +13,12 @@ int main() {
         printf("Enter key: ");
         scanf("%d", &key);
         
-        index = key % 7; // Compute initial hash index
+        index = key % 7; 
 
-        // Linear probing loop
         while (hash[index] != -1)
             index = (index + 1) % 7;
         
-        hash[index] = key; // Place key in the empty slot
+        hash[index] = key; 
     }
 
     printf("\nFinal Hash Table:\n");
@@ -29,3 +27,4 @@ int main() {
     }
 return 0;
 }
+
