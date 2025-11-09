@@ -6,7 +6,7 @@
 int stack[MAX];
 int top = -1;
 
-// Function to push element onto stack
+
 void push() {
     int value;
     if(top >= MAX - 1) {
@@ -19,8 +19,6 @@ void push() {
     stack[top] = value;
     printf("%d pushed onto stack.\n", value);
 }
-
-// Function to pop element from stack
 void pop() {
     if(top == -1) {
         printf("Stack Underflow!\n");
@@ -29,8 +27,6 @@ void pop() {
     printf("%d popped from stack.\n", stack[top]);
     top--;
 }
-
-// Function to display stack
 void display() {
     if(top == -1) {
         printf("Stack is empty.\n");
@@ -42,8 +38,6 @@ void display() {
     }
     printf("\n");
 }
-
-// Function to check if a number is palindrome using stack
 void checkPalindrome() {
     char str[50];
     char temp[50];
@@ -52,7 +46,6 @@ void checkPalindrome() {
     scanf("%s", str);
 
     len = strlen(str);
-    // Push characters onto stack
     for(int i = 0; i < len; i++) {
         if(top >= MAX - 1) {
             printf("Stack Overflow while checking palindrome!\n");
@@ -61,8 +54,6 @@ void checkPalindrome() {
         top++;
         stack[top] = str[i];
     }
-
-    // Pop characters to create reversed string
     for(int i = 0; i < len; i++) {
         temp[i] = stack[top];
         top--;
@@ -74,8 +65,6 @@ void checkPalindrome() {
     else
         printf("%s is not a palindrome.\n", str);
 }
-
-// Function to demonstrate overflow
 void demonstrateOverflow() {
     int i;
     printf("Demonstrating Stack Overflow:\n");
@@ -83,14 +72,12 @@ void demonstrateOverflow() {
         push();
     }
 }
-
-// Function to demonstrate underflow
 void demonstrateUnderflow() {
     printf("Demonstrating Stack Underflow:\n");
     while(top >= 0) {
         pop();
     }
-    pop(); // Attempt one extra pop
+    pop(); 
 }
 
 int main() {
@@ -120,4 +107,5 @@ int main() {
         }
     }
     return 0;
+
 }
