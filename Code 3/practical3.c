@@ -45,7 +45,6 @@ void demonstrateOverflow() {
         if (front == -1) front = 0;
         printf("%c inserted into queue\n", Q[rear]);
     }
-    // One more insert to cause overflow
     insert();
 }
 
@@ -86,3 +85,4 @@ int main() {
         }
     }
 }
+
